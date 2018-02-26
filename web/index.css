@@ -86,3 +86,17 @@ choice a:hover {
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+
+.crapsDiv{
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 10px inset royalblue;    
+    padding: 10px; width: 120px;
+    margin-bottom: 10px;
+}
+
+.crapsImage{
+    width: 54px; 
+    height: 54px;
+}
