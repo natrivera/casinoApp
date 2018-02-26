@@ -34,7 +34,7 @@ public class CrapsController extends HttpServlet
             out.println("<body>");
             out.println("<h1>Servlet CrapsController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
-            out.println("</html>");
+          
         }
     }
 
