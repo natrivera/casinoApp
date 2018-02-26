@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class login extends HttpServlet
 {
 
-    /**
+    /**more comments
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
