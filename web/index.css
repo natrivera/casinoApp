@@ -92,7 +92,8 @@ choice a:hover {
     height: 100px;
     padding: 20px;
     border: 10px inset royalblue;    
-    padding: 10px; width: 120px;
+    padding: 10px; 
+    width: 120px;
     margin-bottom: 10px;
 }
 
