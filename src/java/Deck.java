@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Deck
-{//asdfasdf
+{
    private static final String[] faces = 
-      {"Ace", "Deuce", "Three", "Four", "Five", "Six", 
-        "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
+      { "Deuce", "Three", "Four", "Five", "Six", 
+        "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" , "Ace"};
    private static final String[] suits = 
       {"Hearts", "Diamonds", "Clubs", "Spades"};
    
@@ -16,6 +17,12 @@ public class Deck
 
    private Card[] deck; // array of Card objects
    private int currentCard; // the index of next Card to be dealt
+   private int score;
+
+    public int getScore()
+    {
+        return score;
+    }
 
    // constructor fills deck of cards
    public Deck()
@@ -28,6 +35,12 @@ public class Deck
          deck[count] = 
             new Card(faces[count % 13], suits[count / 13]);
    } 
+   
+
+    public Card[] getDeck()
+    {
+        return deck;
+    }
 
    // shuffle deck of cards with one-pass algorithm
    public void shuffle()
@@ -45,7 +58,7 @@ public class Deck
    } 
    
    public String getBet()
-   {       
+   {    
        return message;
    }
 
@@ -80,24 +93,44 @@ public class Deck
 
       return numbers;
    } 
+   
+   //get the highest card 
+   public void highCard(Card hand[]) {
+       
+       ArrayList<Integer> temp = new ArrayList();
+       for (int i = 0; i < faces.length; i++) {
+       
+           for (int j = 0; j < hand.length; j++) {
+           
+               if(faces[i].equals(hand[j].getFace())) {
+               
+                   temp.add(i);
+                   score = i;
+               }
+           }
+       }
+       String facer = faces[temp.get(4)];
+       message = "High card " + facer;
+   }
 
    // determine if hand contains pairs
    public int pairs(Card hand[])
    {
+       
       int couples = 0;
       int[] numbers = totalHand(hand);
 
       // count pairs
       for (int k = 0; k < numbers.length; k++)
       {
-         if (numbers[k] == 2) 
-         {
-            message = String.format("---Pair of %ss\n", faces[k]);
-           
-           
-            ++couples;
-         } 
-	   } 
+            if (numbers[k] == 2) 
+            {
+               message = String.format("Pair of %ss\n", faces[k]);
+
+               score = 200 + k;
+               ++couples;
+            } 
+        } 
 
       return couples;
    }
@@ -113,8 +146,8 @@ public class Deck
       {
          if (numbers[k] == 3) 
          {
-             message = String.format("---Three %ss\n", faces[k]);
-             
+             message = String.format("Three %ss\n", faces[k]);
+             score = 400 + k;
             ++triples;
             break;
          } 
@@ -134,7 +167,8 @@ public class Deck
           
          if (numbers[k] == 4)
          {
-            message = String.format("---Four %ss\n",  faces[k]);
+            message = String.format("Four %ss\n",  faces[k]);
+            score = 1000 + k;
          }
          
           
@@ -152,7 +186,8 @@ public class Deck
             return;   // not a flush
       } 
 
-       message = String.format("---Flush in %s\n", theSuit);
+       message = String.format("Flush in %s\n", theSuit);
+       score = 600;
     
    } 
 
@@ -194,7 +229,8 @@ public class Deck
          } 
       } 
 
-       message = String.format("\n---Straight");
+       message = String.format("\nStraight");
+       score = 500;
        
    } 
 
@@ -203,7 +239,8 @@ public class Deck
    {
       if (couples == 1 && triples == 1) 
       {
-          message = String.format("\n---Full House!");
+          message = String.format("\nFull House!");
+          score = 700;
           
       }
    } 
@@ -213,7 +250,8 @@ public class Deck
    {
       if (couples == 2) 
       {
-          message = String.format("\n---Two Pair!");
+          message = String.format("\nTwo Pair!");
+          score = score + 100;
           
       }
    } 
