@@ -8,15 +8,15 @@
         <link rel="icon" href="./img/favicon.ico" type="image/x-icon" >
     </head>
     <body>
+        <jsp:include page="/navbar.jsp" />
         <div class="">
             <div class="inner">
                 <div class="choices">
-                    <div class="choice">
-                        <form action="Poker" method="post">
-                            <input type="hidden" name="action" value="cpu" />
-                            <input type="submit" value="1 Player" /> 
-                        </form>
-                    </div>
+                    <a href="Poker?action=cpu" >
+                        <div class="choice">
+
+                        </div>
+                    </a>
                     <div class="choice">
                         <form action="Poker" method="post">
                             <input type="hidden" name="action" value="multi" />

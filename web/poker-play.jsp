@@ -10,6 +10,7 @@
         <link rel="icon" href="./img/favicon.ico" type="image/x-icon" >
     </head>
     <body>
+        <jsp:include page="/navbar.jsp" />
         <div class="welcome">
                 Name: ${user.name}<br>
                 Balance: $${user.balance}

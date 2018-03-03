@@ -9,6 +9,7 @@
         <link rel="icon" href="./img/favicon.ico" type="image/x-icon" >
     </head>
     <body>
+        <jsp:include page="/navbar.jsp" />
         <div class="main">
             <div class="tittle">
                 <h1>Choose a game</h1>

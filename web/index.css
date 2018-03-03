@@ -9,6 +9,13 @@ body {
     color: #FFF;
 }
 
+nav {
+background-color: #000;
+margin: -10px;
+padding: 10px;
+color: #fff;
+}
+
 input {
     background-color: #000;
     color: #FFF;

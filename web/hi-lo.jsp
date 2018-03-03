@@ -9,6 +9,6 @@
         <link rel="icon" href="./img/favicon.ico" type="image/x-icon" >
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="/navbar.jsp" />
     </body>
 </html>

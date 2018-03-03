@@ -8,6 +8,7 @@
         <link rel="icon" href="./img/favicon.ico" type="image/x-icon" >
     </head>
     <body>
+        <jsp:include page="/navbar.jsp" />
     <center>
         <div id="pointDiv" class="crapsDiv">
             <p class ="point">Point is:</p>
