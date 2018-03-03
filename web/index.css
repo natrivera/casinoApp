@@ -16,6 +16,19 @@ padding: 10px;
 color: #fff;
 }
 
+nav span {
+    margin-left: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: red;
+}
+
 input {
     background-color: #000;
     color: #FFF;
@@ -97,7 +110,7 @@ choice a:hover {
 .game {
     height: 80vh;
     width: 100%;
-   
+    margin-top: 20px;
 }
 
 .poker-board {

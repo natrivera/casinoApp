@@ -11,10 +11,7 @@
     </head>
     <body>
         <jsp:include page="/navbar.jsp" />
-        <div class="welcome">
-                Name: ${user.name}<br>
-                Balance: $${user.balance}
-            </div>
+        
         <div class="game">
             <div class="poker-board">
                 <div class="poker-dealer">

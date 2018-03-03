@@ -14,15 +14,17 @@
                 <div class="choices">
                     <a href="Poker?action=cpu" >
                         <div class="choice">
-
+                            1-Player<br><br>
+                           <img src="./img/Ace of Spades.png" />
                         </div>
                     </a>
-                    <div class="choice">
-                        <form action="Poker" method="post">
-                            <input type="hidden" name="action" value="multi" />
-                            <input type="submit" value="Multi-Player" /> 
-                        </form>
-                    </div>
+                    <a href="Poker?action=multi">
+                        <div class="choice">
+                            Multi-Player<br><br>
+                            <img src="./img/Ace of Hearts.png" class="poker-play-card-1" />
+                            <img src="./img/Ace of Diamonds.png" class="poker-play-card-2" />
+                        </div>
+                    </a>
                     <div class="choice">
                         <form action="Poker" method="post">
                             <input type="hidden" name="action" value="answer" />
