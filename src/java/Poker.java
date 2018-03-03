@@ -36,6 +36,9 @@ public class Poker extends HttpServlet
         //get the bet set by te user
         String bet = (String) request.getParameter("poker-bet");
         
+        //initialize the bet
+        request.setAttribute("bet", "10");
+        
         //first time getting to this page
         if(bet == null) {
         
@@ -113,6 +116,7 @@ public class Poker extends HttpServlet
                 request.setAttribute("cpucards", cpucards);
                 request.setAttribute("playercards" , playercards);
                 request.setAttribute("cpu", cpu);
+                request.setAttribute("bet", userbet);
 
 
 
@@ -126,6 +130,7 @@ public class Poker extends HttpServlet
 
             } else if(action.equals("first")) {
 
+                
 
             }//end of first 
         

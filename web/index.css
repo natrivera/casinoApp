@@ -131,8 +131,11 @@ choice a:hover {
     text-align: center;
 }
 
-.poker-controls form input {
+.poker-controls form input , button {
     background-color: red;
+    color: #fff;
+    border: none;
+    padding: 2px;
 }
 
 .poker-player {

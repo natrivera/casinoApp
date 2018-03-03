@@ -55,9 +55,9 @@
                                 Name: ${user.name}
                                 <br><br>
                                 <form action="Poker" method="post">
-                                    <button type="button">-</button>
-                                    <input name="poker-bet" value="10" />
-                                    <button type="button">+</button>
+                                    <button type="button" onclick="minus();">-</button>
+                                    <input name="poker-bet" id="userbet" value="${bet}" />
+                                    <button type="button" onclick="plus();">+</button>
                                     <br>
                                     <input type="submit" value="Bet" />
                                     <input type="hidden" name="action" value="cpu" />
@@ -129,5 +129,23 @@
                 </div>
             </div>
         </div>
+                        
+       <script>
+           
+           function minus() {
+               var input = document.getElementById("userbet").value;
+               var temp = parseInt(input);
+               temp--;
+               document.getElementById("userbet").value = temp;
+           }
+           
+           function plus() {
+               var input = document.getElementById("userbet").value;
+               var temp = parseInt(input);
+               temp++;
+               document.getElementById("userbet").value = temp;
+           }
+                            
+       </script>
     </body>
 </html>
