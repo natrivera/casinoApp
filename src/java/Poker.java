@@ -24,6 +24,7 @@ public class Poker extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        User user = (User) request.getAttribute("user");
         String url = "/poker-play.jsp";
         String action = (String) request.getParameter("action");
         
@@ -34,10 +35,9 @@ public class Poker extends HttpServlet
             deck.shuffle();
             
             User cpu = new User("Dealer" , "usr" , "pass");
-            User player = (User) request.getAttribute("user");
             
             
-            
+                    
             Card[] cpucards =  {deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard()};
             
             Card[] playercards = {deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard()};
@@ -87,6 +87,8 @@ public class Poker extends HttpServlet
             request.setAttribute("playermessage", playermessage);
             request.setAttribute("cpucards", cpucards);
             request.setAttribute("playercards" , playercards);
+            request.setAttribute("cpu", cpu);
+            
         
             
             //user selected muliplayer
@@ -100,7 +102,7 @@ public class Poker extends HttpServlet
         } else {}
         
         
-        
+        request.setAttribute("user" , user);
         // forward request and response objects to specified URL
         getServletContext()
             .getRequestDispatcher(url)

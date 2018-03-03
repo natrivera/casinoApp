@@ -104,13 +104,11 @@ choice a:hover {
     background-color: transparent;
     width: 100%;
     height: 50%;
-    border-bottom: 3px solid #fff;
 }
 
 .poker-player {
     width: 100%;
     height: 50%;
-    border-bottom: 3px solid #fff;
 }
 
 .poker-player-box {
@@ -122,18 +120,38 @@ choice a:hover {
 }
 
 .poker-cards {
-    height: 25%;
+    height: 40%;
     width: 100%;
 }
 
 .poker-cards img {
-    width: 18%;
+    width: 25%;
     margin: auto;
 }
 
 .poker-user {
-    height: 75%;
+    height: 60%;
     width: 100%;
+}
+
+.poker-play-card-1 {
+    margin-left: 20px !important;
+}
+
+.poker-play-card-2 {
+    margin-left: -35px !important;
+}
+
+.poker-play-card-3 {
+    margin-left: -35px !important;
+}
+
+.poker-play-card-4 {
+    margin-left: -35px !important;
+}
+
+.poker-play-card-5 {
+    margin-left: -35px !important;
 }
 
 .crapsDiv{
