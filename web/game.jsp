@@ -11,15 +11,10 @@
     <body>
         <jsp:include page="/navbar.jsp" />
         <div class="main">
-            <div class="tittle">
-                <h1>Choose a game</h1>
-            </div>     
+               
         </div>
         <div class="inner">
-        <div class="welcome">
-                Name: ${user.name}<br>
-                Balance: $${user.balance}
-            </div>
+       
                 <div class="choices">
                     <a href="poker.jsp">
                         <div class="choice">
