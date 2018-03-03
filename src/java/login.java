@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class login extends HttpServlet
@@ -32,6 +33,9 @@ public class login extends HttpServlet
         //action old for old user login
         if(action.equals("new")) {
         
+            //get the session object
+            HttpSession session = request.getSession();
+            
             //get the inputed values from the form 
             String name = (String) request.getParameter("name");
             String dob = (String) request.getParameter("dob");
@@ -41,9 +45,15 @@ public class login extends HttpServlet
             
             //create user object from inputted values
             User user = new User(name , username , password);
-            request.setAttribute("user", user);
+            //request.setAttribute("user", user);
+            
+            //set the user object to the session
+            session.setAttribute("user", user);
             
         } else if (action.equals("old")) {
+            
+            //get the session object
+            HttpSession session = request.getSession();
             
             //get the iputted values from the login form
             String username = (String) request.getParameter("username");
@@ -58,7 +68,10 @@ public class login extends HttpServlet
                 if(password.equals("sesame")) {
                     
                     User user = new User(username , username , password);
-                    request.setAttribute("user", user);
+                    //request.setAttribute("user", user);
+                    
+                    //set the user object to the session
+                    session.setAttribute("user", user);
 
                 } else {
 

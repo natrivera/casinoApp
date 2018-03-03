@@ -28,6 +28,7 @@
                             <img src="./img/Ace of Spades.png" />
                         </div>
                     </a>
+                 
                     <a href="craps.jsp">
                         <div class="choice">
                             Craps

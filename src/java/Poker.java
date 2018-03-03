@@ -99,7 +99,10 @@ public class Poker extends HttpServlet
         } else if(action.equals("answer")) {
         
             
-        } else {}
+        } else if(action.equals("first")) {
+        
+            
+        }
         
         
         request.setAttribute("user" , user);
