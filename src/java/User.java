@@ -9,7 +9,7 @@ public class User
         name = "";
         username = "";
         password = "";
-        balance = 0;
+        balance = 1000;
         currentWins = 0;
         currentPlayed = 0;
     }
@@ -21,7 +21,7 @@ public class User
         name = n;
         username = u;
         password = p;
-        balance = 0;
+        balance = 1000;
         currentWins = 0;
         currentPlayed = 0;
     }
@@ -94,5 +94,10 @@ public class User
     public void setBalance(int i) {
     
         balance = i;
+    }
+    
+    public void updateBalance( int n) {
+    
+        balance += n;
     }
 }

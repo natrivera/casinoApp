@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,17 +20,15 @@
                                 <br>
                             </div>
                             <div class="poker-controls">
-                                <div class="poker-bet">
+                                <div class="poker-bet" style="display: none;">
                                     <button>-</button>
                                     <input name="poker-bet" value="10" />
                                     <button>+</button>
                                 </div>
-                            </div>
-                            ${cpumessage}
-                            <br>
-                            ${winmessage}
+                            </div>  
                         </div>
                         <div class="poker-cards">
+                            <div class="poker-hand-msg"><h2>${cpumessage}</h2></div>
                             <img src="./img/${cpucards[0]}.png" class="poker-play-card-1" />
                             <img src="./img/${cpucards[1]}.png" class="poker-play-card-2" /> 
                             <img src="./img/${cpucards[2]}.png" class="poker-play-card-3" /> 
@@ -41,7 +37,7 @@
                         </div>
                     </div> 
                     <div class="poker-output">
-                        
+                        ${winmessage}
                     </div>
                 </div>
                 <div class="poker-player">
@@ -52,21 +48,21 @@
                             <img src="./img/${playercards[2]}.png" class="poker-play-card-3" /> 
                             <img src="./img/${playercards[3]}.png" class="poker-play-card-4" /> 
                             <img src="./img/${playercards[4]}.png" class="poker-play-card-5" />
+                            <div class="poker-hand-msg"><h2>${playermessage}</h2></div>
                         </div>
                         <div class="poker-user">
                             <div class="poker-controls">
                                 Name: ${user.name}
-                                <div class="poker-bet">
-                                    <button>-</button>
-                                    <input name="poker-bet" value="10" />
-                                    <button>+</button>
-                                </div>
+                                <br><br>
                                 <form action="Poker" method="post">
-                                    <input type="submit" value="Play Again" />
+                                    <button type="button">-</button>
+                                    <input name="poker-bet" value="10" />
+                                    <button type="button">+</button>
+                                    <br>
+                                    <input type="submit" value="Bet" />
                                     <input type="hidden" name="action" value="cpu" />
                                 </form>
                             </div>
-                            ${playermessage}
                         </div>
                     </div>
                     <div class="poker-player-box">
@@ -81,13 +77,13 @@
                             
                             <div class="poker-controls">
                                 Name:
-                                <div class="poker-bet">
+                                <div class="poker-bet" style="display: none;">
                                     <button>-</button>
                                     <input name="poker-bet" value="10" />
                                     <button>+</button>
                                 </div>
                             </div>
-                            |<br>|
+                            |<br>|<br>|
                         </div>
                     </div>
                     <div class="poker-player-box">
@@ -101,13 +97,13 @@
                         <div class="poker-user">
                             <div class="poker-controls">
                                 Name:
-                                <div class="poker-bet">
+                                <div class="poker-bet" style="display: none;">
                                     <button>-</button>
                                     <input name="poker-bet" value="10" />
                                     <button>+</button>
                                 </div>
                             </div>
-                            |<br>|
+                            |<br>|<br>|
                         </div>
                     </div>
                     <div class="poker-player-box">
@@ -121,13 +117,13 @@
                         <div class="poker-user">
                             <div class="poker-controls">
                                 Name:
-                                <div class="poker-bet">
+                                <div class="poker-bet" style="display: none;">
                                     <button>-</button>
                                     <input name="poker-bet" value="10" />
                                     <button>+</button>
                                 </div>
                             </div>
-                            |<br>|
+                            |<br>|<br>|
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,12 @@ public class Card
 {
    private final String face; // face of card
    private final String suit; // suit of card
+   
+   Card() {
+   
+       face = "i";
+       suit = "";
+   }
 
    // constructor
    public Card(String cardFace, String cardSuit)
@@ -25,6 +31,14 @@ public class Card
    // return String representation of Card
    public String toString() 
    { 
-      return face + " of " + suit;
+       if(face.equals("i")) {
+       
+           return face;
+       } else {
+      
+           return face + " of " + suit;
+           
+       }
+      
    } 
 } // end class Card

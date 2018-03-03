@@ -14,7 +14,7 @@
                 <form action="login" method="post">
                     <label>Name:</label><input name="name" type="text"  required />
                     <br><br>
-                    <label>Date of Birth:</label><input name="dob" type="date" required />
+                    <label>Date of Birth:</label><input name="dob" type="date" value="1990-01-01" required />
                     <br><br>
                     <label>UserName:</label><input name="username" type="text" required  />
                     <br><br>

@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class Poker extends HttpServlet
@@ -24,85 +25,114 @@ public class Poker extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        User user = (User) request.getAttribute("user");
+        
+        //get the session object
+        HttpSession session = request.getSession();
+        //get the user in the session object
+        User user = (User) session.getAttribute("user");
+        //url to poker page
         String url = "/poker-play.jsp";
         String action = (String) request.getParameter("action");
+        //get the bet set by te user
+        String bet = (String) request.getParameter("poker-bet");
         
-        //user selected to play against cpu
-        if(action.equals("cpu")) {
-            
-            Deck deck = new Deck();
-            deck.shuffle();
-            
-            User cpu = new User("Dealer" , "usr" , "pass");
-            
-            
-                    
-            Card[] cpucards =  {deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard()};
-            
-            Card[] playercards = {deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard()};
-            
-            // display result
-            deck.highCard(cpucards);
-            int couples = deck.pairs(cpucards); // a pair
-            deck.twoPairs(couples); // two pairs
-            int triples = deck.threeOfAKind(cpucards); // three of a kind
-            deck.fourOfAKind(cpucards); // four of a kind
-            deck.flush(cpucards); // a flush
-            deck.straight(cpucards); // a straight
-            deck.fullHouse(couples, triples); // a full house
-            
-            String cpumessage = deck.getBet();
-            int cpuscore = deck.getScore();
-            
-            
-            // display result
-            deck.highCard(playercards);
-            couples = deck.pairs(playercards); // a pair
-            deck.twoPairs(couples); // two pairs
-            triples = deck.threeOfAKind(playercards); // three of a kind
-            deck.fourOfAKind(playercards); // four of a kind
-            deck.flush(playercards); // a flush
-            deck.straight(playercards); // a straight
-            deck.fullHouse(couples, triples); // a full house
-            
-            String playermessage = deck.getBet();
-            int playerscore = deck.getScore();
-            
-            String winmessage = "";
-            
-            if(cpuscore > playerscore) {
-            
-                winmessage = "CPU Wins!!!";
-            } else if(cpuscore < playerscore) {
-            
-                winmessage = "Player Wins!!!";
-            } else {
-            
-                winmessage = "Tie Game";
-            }
-            
-            request.setAttribute("winmessage" , winmessage);
-            request.setAttribute("cpumessage", cpumessage);
-            request.setAttribute("playermessage", playermessage);
+        //first time getting to this page
+        if(bet == null) {
+        
+            Card[] cpucards = {new Card() , new Card() , new Card() , new Card() , new Card()};
+            Card[] playercards = {new Card() , new Card() , new Card() , new Card() , new Card()};
             request.setAttribute("cpucards", cpucards);
             request.setAttribute("playercards" , playercards);
-            request.setAttribute("cpu", cpu);
-            
+          
+        //after user sends a bet    
+        } else {
         
-            
-            //user selected muliplayer
-        } else if(action.equals("multi")) {
-            
+            //user selected to play against cpu
+            if(action.equals("cpu")) {
+
+                Deck deck = new Deck();
+                deck.shuffle();
+
+                User cpu = new User("Dealer" , "usr" , "pass");
+                
+                Integer userbet = Integer.parseInt(bet);
+
+                //deal cards to player
+                Card[] playercards =  {deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard()};
+
+                //deal cards to cpu
+                Card[] cpucards = {deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard()};
+
+                // get the result
+                deck.highCard(cpucards);
+                int couples = deck.pairs(cpucards); // a pair
+                deck.twoPairs(couples); // two pairs
+                int triples = deck.threeOfAKind(cpucards); // three of a kind
+                deck.fourOfAKind(cpucards); // four of a kind
+                deck.flush(cpucards); // a flush
+                deck.straight(cpucards); // a straight
+                deck.fullHouse(couples, triples); // a full house
+
+                String cpumessage = deck.getBet();
+                int cpuscore = deck.getScore();
+
+
+                // get the result
+                deck.highCard(playercards);
+                couples = deck.pairs(playercards); // a pair
+                deck.twoPairs(couples); // two pairs
+                triples = deck.threeOfAKind(playercards); // three of a kind
+                deck.fourOfAKind(playercards); // four of a kind
+                deck.flush(playercards); // a flush
+                deck.straight(playercards); // a straight
+                deck.fullHouse(couples, triples); // a full house
+
+                String playermessage = deck.getBet();
+                int playerscore = deck.getScore();
+
+                String winmessage = "";
+
+                if(cpuscore > playerscore) {
+
+                    winmessage = "CPU Wins!!!";
+                    
+                    user.updateBalance(-1 * userbet);
+                } else if(cpuscore < playerscore) {
+
+                    winmessage = "Player Wins!!!";
+                    
+                    user.updateBalance(userbet);
+                } else {
+
+                    winmessage = "Tie Game";
+                }
+
+                request.setAttribute("winmessage" , winmessage);
+                request.setAttribute("cpumessage", cpumessage);
+                request.setAttribute("playermessage", playermessage);
+                request.setAttribute("cpucards", cpucards);
+                request.setAttribute("playercards" , playercards);
+                request.setAttribute("cpu", cpu);
+
+
+
+                //user selected muliplayer
+            } else if(action.equals("multi")) {
+
+
+                //user selected to answer challenge
+            } else if(action.equals("answer")) {
+
+
+            } else if(action.equals("first")) {
+
+
+            }//end of first 
         
-            //user selected to answer challenge
-        } else if(action.equals("answer")) {
+        }//end of user enters a bet
         
-            
-        } else if(action.equals("first")) {
         
-            
-        }
+        
         
         
         request.setAttribute("user" , user);
@@ -110,7 +140,7 @@ public class Poker extends HttpServlet
         getServletContext()
             .getRequestDispatcher(url)
             .forward(request, response);
-    }
+    }//end of process request
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
