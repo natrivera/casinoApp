@@ -9,7 +9,6 @@
     </head>
     <body>
         <jsp:include page="/navbar.jsp" />
-        
         <div class="game">
             <div class="poker-board">
                 <div class="poker-dealer">

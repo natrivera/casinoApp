@@ -1,7 +1,8 @@
 public class User
 {
-    private String name, username , password;
-    private int balance , currentWins , currentPlayed;
+    private String name, username , password , dob;
+
+    private int balance , currentWins , currentPlayed , userid;
     
     //empty constructor
     User() {
@@ -12,11 +13,13 @@ public class User
         balance = 1000;
         currentWins = 0;
         currentPlayed = 0;
+        dob = "1999-01-01";
+        userid = 1;
     }
 
   
     
-    User( String n , String u , String p) {
+    User( String n , String u , String p , String d ) {
     
         name = n;
         username = u;
@@ -24,6 +27,39 @@ public class User
         balance = 1000;
         currentWins = 0;
         currentPlayed = 0;
+        dob = d;
+        userid = 1;
+    }
+    
+    User( String n , int b , String u , int i) {
+    
+        name = n;
+        username = u;
+        password = "";
+        balance = b;
+        currentWins = 0;
+        currentPlayed = 0;
+        userid = i;
+    }
+
+    public void setUserid(int userid)
+    {
+        this.userid = userid;
+    }
+
+    public int getUserid()
+    {
+        return userid;
+    }
+    
+    public void setDob(String dob)
+    {
+        this.dob = dob;
+    }
+
+    public String getDob()
+    {
+        return dob;
     }
     
       public String getUsername()

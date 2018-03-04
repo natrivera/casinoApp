@@ -25,6 +25,7 @@ public class Poker extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        CasinoDB db = new CasinoDB();
         
         //get the session object
         HttpSession session = request.getSession();
@@ -56,7 +57,7 @@ public class Poker extends HttpServlet
                 Deck deck = new Deck();
                 deck.shuffle();
 
-                User cpu = new User("Dealer" , "usr" , "pass");
+                User cpu = new User("Dealer" , "usr" , "pass", "0000-00-00");
                 
                 Integer userbet = Integer.parseInt(bet);
 
@@ -79,7 +80,6 @@ public class Poker extends HttpServlet
                 String cpumessage = deck.getBet();
                 int cpuscore = deck.getScore();
 
-
                 // get the result
                 deck.highCard(playercards);
                 couples = deck.pairs(playercards); // a pair
@@ -95,21 +95,24 @@ public class Poker extends HttpServlet
 
                 String winmessage = "";
 
+                int change = 0;
                 if(cpuscore > playerscore) {
-
                     winmessage = "CPU Wins!!!";
-                    
-                    user.updateBalance(-1 * userbet);
+                    change = (-1 * userbet);
                 } else if(cpuscore < playerscore) {
-
                     winmessage = "Player Wins!!!";
-                    
-                    user.updateBalance(userbet);
+                    change = userbet;
                 } else {
-
                     winmessage = "Tie Game";
                 }
-
+                int bal = user.getBalance() + change;
+                
+                String out = "";
+                if(change != 0) {
+                    out = db.updateBalance(user , bal ,  change);
+                    user = db.getUser(user.getUserName());
+                }
+                
                 request.setAttribute("winmessage" , winmessage);
                 request.setAttribute("cpumessage", cpumessage);
                 request.setAttribute("playermessage", playermessage);
@@ -137,10 +140,7 @@ public class Poker extends HttpServlet
         }//end of user enters a bet
         
         
-        
-        
-        
-        request.setAttribute("user" , user);
+        session.setAttribute("user" , user);
         // forward request and response objects to specified URL
         getServletContext()
             .getRequestDispatcher(url)

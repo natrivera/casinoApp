@@ -1,6 +1,5 @@
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +22,10 @@ public class login extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        
+        //create a db object
+        CasinoDB db = new CasinoDB();
+        
         //url to go to game after login
         String url = "/game.jsp";
         
@@ -42,14 +45,25 @@ public class login extends HttpServlet
             String username = (String) request.getParameter("username");
             String password = (String) request.getParameter("password");
             
+            String check = db.login(username, password);
             
-            //create user object from inputted values
-            User user = new User(name , username , password);
-            //request.setAttribute("user", user);
-            
-            //set the user object to the session
-            session.setAttribute("user", user);
-            
+            if(check.equals("Username not found in our records")) {
+                //create user object from inputted values
+                User user = new User(name , username , password , dob);
+                db.setUser(user);
+                //set the user object to the session
+                session.setAttribute("user", user);
+                
+                //reset the error
+                session.setAttribute("error", "");
+            } else {
+                //send back to login screen
+                url = "/index.jsp";
+                
+                //send the error back
+                session.setAttribute("error", "UserName already in use");
+            }
+              
         } else if (action.equals("old")) {
             
             //get the session object
@@ -59,31 +73,32 @@ public class login extends HttpServlet
             String username = (String) request.getParameter("username");
             String password = (String) request.getParameter("password");
             
-            //check if user exists
-            if(username.equals("test")) {
-                
-                
-                //if user exists
-                //check if password is correct
-                if(password.equals("sesame")) {
-                    
-                    User user = new User(username , username , password);
-                    //request.setAttribute("user", user);
-                    
-                    //set the user object to the session
-                    session.setAttribute("user", user);
-
-                } else {
-
-                    request.setAttribute("error" , "Password Wrong!");
-                    url = "/login.jsp";
-                }
+            String check = db.login(username, password);
             
-            } else {
-            
-                request.setAttribute("error", "User not found!");
+            if(check.equals("Username not found in our records")) {
+                //send back to login screen
                 url = "/login.jsp";
+                
+                //send the error back
+                session.setAttribute("error", check);
+            
+            } else if(check.equals("Password does not match our records")) {
+                //send back to login screen
+                url = "/login.jsp";
+                
+                //send the error back
+                session.setAttribute("error", check);
+            } else {
+                //create a user from input
+                User user = db.getUser(username);
+              
+                //set the user object to the session
+                session.setAttribute("user", user);
+                
+                //reset the error
+                session.setAttribute("error", "");
             }
+            
     
         } else if(action.equals("admin")) {
         
@@ -97,7 +112,8 @@ public class login extends HttpServlet
                 //check if password is correct
                 if(password.equals("sesame")) {
                     
-                    User user = new User(username , username , password);
+                    String dob = "";
+                    User user = new User(username , username , password , dob);
                     request.setAttribute("user", user);
                     
                     url = "/console.jsp";

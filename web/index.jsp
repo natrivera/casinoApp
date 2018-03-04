@@ -8,6 +8,13 @@
          <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
     </head>
     <body>
+        <div>
+            <nav>
+               <span>Casino App</span>
+               <span><a href="login.jsp">User Login</a></span>
+               <span><a href="admin.jsp">Admin Login</a></span>
+           </nav>   
+        </div>
         <div class="main">
             <div id="title" class="tittle">
                 <h1>Casino App</h1>
@@ -30,12 +37,9 @@
                     <br><br>
                     <input type="hidden" name="action" value="new" />
                     <input type="submit" value="Create User!" />
-                </form>
+                </form>  
                 <br><br>
-                <div id="board" class="board"></div>
-                Already a user? Login <a href="login.jsp">Here!</a>
-                <br><br>
-                Admin Login <a href="admin.jsp">Here!</a>
+                <div class="error">${error}</div>
             </div>
         </div>
         
