@@ -187,7 +187,7 @@ public class CasinoDB
         
     }//end of setuser()
     
-    public String updateBalance(User u , int i , int c) {
+    public String updateBalance(User u , int i , int c , int g) {
         String sqlResult = "";
          try {
             
@@ -214,7 +214,7 @@ public class CasinoDB
             
             //create and insert the update transaction query
             insert = "insert into transaction_t (transactionid , userid , transactiondate , bet , gameid) "
-                    + "values ( " + length + " , " + u.getUserid() + " , '" + currdate + "' , " + c + " , 1 )";
+                    + "values ( " + length + " , " + u.getUserid() + " , '" + currdate + "' , " + c + " , " + g +")";
             //create the statement                
             statement = connection.createStatement();
             rowCount = statement.executeUpdate(insert);

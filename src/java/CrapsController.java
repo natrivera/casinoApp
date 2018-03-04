@@ -29,6 +29,9 @@ public class CrapsController extends HttpServlet
         String die1ImageURL = "";
         String die2ImageURL = ""; 
         
+        User user = (User) session.getAttribute("user");
+        CasinoDB db = new CasinoDB();
+        
         if(playButton != null)
         {            
             message = cm.firstRoll(die1, die2);
@@ -141,6 +144,11 @@ public class CrapsController extends HttpServlet
                 rollButton = "";
                 
                 url = "/craps.jsp";
+                
+                int bal = user.getBalance() + 10;
+                db.updateBalance(user, bal, 10 ,2);
+                user = db.getUser(user.getUserName());
+                session.setAttribute("user", user);
 
                 getServletContext()
                 .getRequestDispatcher(url)
@@ -165,6 +173,11 @@ public class CrapsController extends HttpServlet
 
                 playButton = "";
                 rollButton = "";
+                
+                int bal = user.getBalance() - 10;
+                db.updateBalance(user, bal, -10 ,2);
+                user = db.getUser(user.getUserName());
+                session.setAttribute("user", user);
                 
                 url = "/craps.jsp";
 

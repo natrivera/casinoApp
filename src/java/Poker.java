@@ -109,7 +109,7 @@ public class Poker extends HttpServlet
                 
                 String out = "";
                 if(change != 0) {
-                    out = db.updateBalance(user , bal ,  change);
+                    out = db.updateBalance(user , bal ,  change , 1);
                     user = db.getUser(user.getUserName());
                 }
                 
