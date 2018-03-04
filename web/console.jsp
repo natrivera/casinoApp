@@ -4,26 +4,39 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Console Page</title>
-        <link href="index.css"  rel="stylesheet" />
+        <style>
+            .cosole {
+                margin: auto;
+            }
+            .console form {
+                display: inline-block;
+            }
+    
+        </style>
     </head>
         <body>
+            <jsp:include page="/navbar.jsp" />
+            <div class="console" >
+                <h1>Casino App Console</h1>
 
-           
-            <c:if test="${sqlStatement == null}">
-                <c:set var="sqlStatement" value="select * from User" />
-            </c:if>
+                <form action="Console" method="post">
+                    <input type="hidden" name="sqlStatement" value="select * from user_t" />
+                    <input type="submit" value="Users">
+                </form>
+                <form action="Console" method="post">
+                    <input type="hidden" name="sqlStatement" value="select * from transaction_t" />
+                    <input type="submit" value="Transactions">
+                </form>
+                <form action="Console" method="post">
+                    <input type="hidden" name="sqlStatement" value="select * from game_t" />
+                    <input type="submit" value="Games">
+                </form>
+                <form action="Console" method="post">
+                    <textarea  name="sqlStatement" cols="40" rows="4" ></textarea>
+                    <input type="submit" value="Query">
+                </form>
 
-            <h1>Casino App Console</h1>
-            <p>Enter an SQL statement and click the Execute button.</p>
-
-            <p><b>SQL statement:</b></p>
-            <form action="Console" method="post">
-                <textarea name="sqlStatement" cols="60" rows="8">${sqlStatement}</textarea>
-                <input type="submit" value="Execute">
-            </form>
-
-            <p><b>SQL result:</b></p>
-            ${sqlResult}
-
+                ${sqlResult}
+            </div>
         </body>
 </html>

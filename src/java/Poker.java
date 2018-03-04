@@ -104,14 +104,15 @@ public class Poker extends HttpServlet
                     change = userbet;
                 } else {
                     winmessage = "Tie Game";
+                    change = 0;
                 }
                 int bal = user.getBalance() + change;
                 
                 String out = "";
-                if(change != 0) {
-                    out = db.updateBalance(user , bal ,  change , 1);
-                    user = db.getUser(user.getUserName());
-                }
+                
+                out = db.updateBalance(user , bal ,  change , 1);
+                user = db.getUser(user.getUserName());
+                
                 
                 request.setAttribute("winmessage" , winmessage);
                 request.setAttribute("cpumessage", cpumessage);

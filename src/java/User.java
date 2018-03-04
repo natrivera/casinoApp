@@ -2,7 +2,7 @@ public class User
 {
     private String name, username , password , dob;
 
-    private int balance , currentWins , currentPlayed , userid;
+    private int balance , currentWins , currentPlayed , userid , admin;
     
     //empty constructor
     User() {
@@ -15,6 +15,7 @@ public class User
         currentPlayed = 0;
         dob = "1999-01-01";
         userid = 1;
+        admin = 0;
     }
 
   
@@ -29,6 +30,17 @@ public class User
         currentPlayed = 0;
         dob = d;
         userid = 1;
+        admin = 0;
+    }
+
+    public void setAdmin(int admin)
+    {
+        this.admin = admin;
+    }
+
+    public int getAdmin()
+    {
+        return admin;
     }
     
     User( String n , int b , String u , int i) {
@@ -40,6 +52,7 @@ public class User
         currentWins = 0;
         currentPlayed = 0;
         userid = i;
+        admin = 0;
     }
 
     public void setUserid(int userid)

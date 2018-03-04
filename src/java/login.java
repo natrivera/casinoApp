@@ -106,35 +106,20 @@ public class login extends HttpServlet
             String username = (String) request.getParameter("username");
             String password = (String) request.getParameter("password");
             
-            if(username.equals("admin")) {
+            String check = db.adminLog(username, password);
             
-                //if admin exists
-                //check if password is correct
-                if(password.equals("sesame")) {
-                    
-                    String dob = "";
-                    User user = new User(username , username , password , dob);
-                    request.setAttribute("user", user);
-                    
-                    url = "/console.jsp";
-
-                } else {
-
-                    request.setAttribute("error" , "Password Wrong!");
-                    url = "/admin.jsp";
-                }
-                
+            if(check.equals("admin")) {
+                User user = db.getUser(username);
+                request.setAttribute("user", user);    
+                url = "/console.jsp";
             } else {
-            
                 url = "/admin.jsp";
-                request.setAttribute("error" , "Admin does not exists!");
-                
+                request.setAttribute("error" , check);
             }
             
-        }
-        
-        
-        
+
+            
+        }   
         
         // forward request and response objects to specified URL
         getServletContext()

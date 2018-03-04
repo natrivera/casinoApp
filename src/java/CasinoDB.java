@@ -60,6 +60,22 @@ public class CasinoDB
         return l;
     }
     
+    public String adminLog(String u , String p) {
+    
+        String out = "";
+        String check = login(u , p);
+        if(check.equals("match")) {
+            User user = getUser(u);
+            if(user.getAdmin() == 1) {
+                check = "admin";
+            } else {
+                check = "User is not an Admin";
+            }
+        }
+        
+        return check;
+    }
+    
     public String login(String n , String p) {
     
         String sqlResult = "";
@@ -133,7 +149,8 @@ public class CasinoDB
             user = new User(results.getString("Name") ,
                     results.getInt("Balance") , 
                     results.getString("username") , 
-                    results.getInt("userid"));     
+                    results.getInt("userid"));  
+            user.setAdmin(results.getInt("admin"));
           
             statement.close();
             connection.close();
