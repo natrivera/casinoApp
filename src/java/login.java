@@ -32,13 +32,13 @@ public class login extends HttpServlet
         //get the action from the form
         String action = (String) request.getParameter("action");
         
+        //get the session object
+        HttpSession session = request.getSession();
+        
         //action new for new user
         //action old for old user login
         if(action.equals("new")) {
         
-            //get the session object
-            HttpSession session = request.getSession();
-            
             //get the inputed values from the form 
             String name = (String) request.getParameter("name");
             String dob = (String) request.getParameter("dob");
@@ -65,9 +65,6 @@ public class login extends HttpServlet
             }
               
         } else if (action.equals("old")) {
-            
-            //get the session object
-            HttpSession session = request.getSession();
             
             //get the iputted values from the login form
             String username = (String) request.getParameter("username");
@@ -110,14 +107,12 @@ public class login extends HttpServlet
             
             if(check.equals("admin")) {
                 User user = db.getUser(username);
-                request.setAttribute("user", user);    
+                session.setAttribute("user", user);    
                 url = "/console.jsp";
             } else {
                 url = "/admin.jsp";
                 request.setAttribute("error" , check);
             }
-            
-
             
         }   
         
