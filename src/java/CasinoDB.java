@@ -8,7 +8,6 @@ import java.util.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import javax.servlet.http.HttpSession;
 
 
 public class CasinoDB
@@ -69,8 +68,7 @@ public class CasinoDB
             
             // load the driver
             Class.forName("com.mysql.jdbc.Driver");
-            
-            
+                      
             Connection connection = DriverManager.getConnection(
                     dbURL, username, password);
 
@@ -90,15 +88,15 @@ public class CasinoDB
             }
             
             //check if username is in db and if password matches
-            for(String username : usernames) {
-                if(n.equals(username)) {
-                    for(String pass : passwords) {
-                        if(p.equals(pass)) {
-                            match = "match";
-                        } else {
-                            match = "Password does not match our records";
-                        }
-                    } 
+            for (int x = 0; x < usernames.size(); x++) {
+                String temp = usernames.get(x);
+                if(temp.equals(n)) {
+                    String ptemp = passwords.get(x);
+                    if(ptemp.equals(p)) {
+                        match = "match";
+                    } else {
+                        match = "Password does not match our records";
+                    }
                 }
             }//end of checks
           
@@ -199,7 +197,7 @@ public class CasinoDB
             Connection connection = DriverManager.getConnection(
                     dbURL, username, password);
             
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             Date date = new Date();
             String currdate = dateFormat.format(date);
             
