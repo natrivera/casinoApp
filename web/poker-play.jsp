@@ -9,6 +9,7 @@
     </head>
     <body>
         <jsp:include page="/navbar.jsp" />
+        ${error}
         <div class="game">
             <div class="poker-board">
                 <div class="poker-dealer">
