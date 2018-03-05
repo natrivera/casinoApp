@@ -112,6 +112,21 @@ public class Deck
        String facer = faces[temp.get(4)];
        message = "High card " + facer;
    }
+   
+   public void setSingleCardScore(Card card[]){
+      
+       ArrayList<Integer> temp = new ArrayList();
+       for (int i = 0; i < faces.length; i++) {
+       
+           for (int j = 0; j < card.length; j++) {
+           
+               if(faces[i].equals(card[j].getFace())) {
+               
+                   score = i;
+               }
+           }
+       }
+   }
 
    // determine if hand contains pairs
    public int pairs(Card hand[])
