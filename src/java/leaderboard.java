@@ -30,19 +30,19 @@ public class leaderboard extends HttpServlet
         if(action.equals("")) {
             sql = "select username , balance from user_t order by balance desc";
         } else if(action.equals("1")) {
-            sql = "select user_t.username , transaction_t.bet  " +
-                    "from user_t , transaction_t " +
-                    "where transaction_t.userid = user_t.userid " +
-                    "and gameid = 1 " +
-                    "group by bet desc;";
+            sql = "select user_t.username , sum(transaction_t.bet) as Balance " +
+                    "from user_t left join transaction_t on user_t.UserID = transaction_t.UserID " +
+                    "where transaction_t.GameID = 1 " +
+                    "group by user_t.username " +
+                    "order by Balance desc;";
         } else if(action.equals("2")) {
-            sql = "select user_t.username , transaction_t.bet  " +
-                    "from user_t , transaction_t " +
-                    "where transaction_t.userid = user_t.userid " +
-                    "and gameid = 2 " +
-                    "group by bet desc;";
+            sql = "select user_t.username , sum(transaction_t.bet) as Balance " +
+                    "from user_t left join transaction_t on user_t.UserID = transaction_t.UserID " +
+                    "where transaction_t.GameID = 2 " +
+                    "group by user_t.username " +
+                    "order by Balance desc;";
         }  
-        
+
         String table = db.select(sql);
         
         request.setAttribute("table" , table);
