@@ -31,6 +31,7 @@
                             <br>
                             <br>
                             <img src="./img/5.jpg" />
+                            <br>
                         </div>
                     </a>
                     <a href="bingo.jsp">
@@ -47,6 +48,14 @@
                             <br>
                             <br>
                             <img src="./img/Queen of Spades.png" />
+                        </div>
+                    </a>
+                    <a href="leaderboard?action=">
+                        <div class="choice">
+                            LeaderBoards
+                            <br>
+                            <br>
+                            <img src="./img/Jack of Spades.png" />
                         </div>
                     </a>
                 </div>
