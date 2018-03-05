@@ -28,12 +28,12 @@
                     <label>Password:</label><input name="password" type="password" required />
                     <br><br>
                     <label>Image:</label>
-                        <select name="quantity">
-                            <option value="1" style="background-image:url(./img/male.jpg);">Male</option>
-                            <option value="2" style="background-image:url(./img/male1.jpg);">Male</option>
-                            <option value="3" style="background-image:url(./img/female.png);">Female</option>
-                            <option value="4" style="background-image:url(./img/female1.png);">Female</option>
-                        </select>
+                    <fieldset>
+                    <input name="image" type="radio" value="./img/male.jpg" selected ><img src="./img/male.jpg" /><br>
+                    <input name="image" type="radio" value="./img/male1.jpg"><img src="./img/male1.jpg" /><br>
+                    <input name="image" type="radio" value="./img/female.jpg"><img src="./img/female.jpg" /><br>
+                    <input name="image" type="radio" value="./img/female1.jpg"><img src="./img/female1.jpg" />
+                    </fieldset>
                     <br><br>
                     <input type="hidden" name="action" value="new" />
                     <input type="submit" value="Create User!" />

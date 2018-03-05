@@ -1,11 +1,7 @@
+
+
 body {
-    background-position: center 0;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: 100vw;
-    overflow: hidden;
-    background-size: cover;
-    background-image: url("./img/back1.jpg");
+    background-color: #00BFFF;
     color: #FFF;
 }
 
@@ -26,12 +22,14 @@ nav a {
 }
 
 nav a:hover {
-    color: red;
+    color: #00BFFF;
 }
 
 input {
-    background-color: #000;
-    color: #FFF;
+
+    border: none;
+}
+fieldset {
     border: none;
 }
 
@@ -51,6 +49,11 @@ input {
     text-align: center;
 }
 
+.tittle img {
+    height: 50px;
+    width: 50px;
+}
+
 .board {
     background-color: #336600;
     min-height: 100%;
@@ -68,6 +71,8 @@ label {
     width: 200px;
     padding-right: 15px;
 }
+
+
 
 .welcome {
     float: right;
@@ -90,7 +95,7 @@ label {
 }
 
 .choice:hover {
-    box-shadow: 0px 0px 5px #fff;
+    box-shadow: 0px 0px 15px #fff;
 }
 
 .choice a {
@@ -215,6 +220,7 @@ choice a:hover {
     min-height: 500px;
     text-align: center;
     margin: 20px auto;
+    padding: 20px;
 }
 
 .poker-stats {
@@ -223,6 +229,35 @@ choice a:hover {
 
 .stat-table table {
     margin: auto;
+}
+
+.stat-table td ,th {
+    margin: 10px !important;
+    padding: 10px;
+}
+
+.stat-table img {
+    width: 75px;
+    height: 75px;
+}
+
+.console {
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.console-div {
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.console form {
+    display: inline-block;
+}
+
+.console form:hover {
+    background-color: #FFF;
 }
 
 .crapsDiv{
