@@ -28,6 +28,7 @@ public class CrapsController extends HttpServlet
         String pointDie2Image = "";
         String die1ImageURL = "";
         String die2ImageURL = ""; 
+
         
         User user = (User) session.getAttribute("user");
         CasinoDB db = new CasinoDB();
@@ -52,6 +53,11 @@ public class CrapsController extends HttpServlet
                 
                 playButton = "";
                 rollButton = "";
+                
+                int bal = user.getBalance() + 10;
+                db.updateBalance(user, bal, 10 ,2);
+                user = db.getUser(user.getUserName());
+                session.setAttribute("user", user);
 
                 url = "/craps.jsp";
 
@@ -76,6 +82,10 @@ public class CrapsController extends HttpServlet
                 playButton = "";
                 rollButton = "";
 
+                int bal = user.getBalance() - 10;
+                db.updateBalance(user, bal, -10 ,2);
+                user = db.getUser(user.getUserName());
+                session.setAttribute("user", user);
 
                 url = "/craps.jsp";
 
@@ -102,7 +112,7 @@ public class CrapsController extends HttpServlet
                 request.setAttribute("die1ImageURL", die1ImageURL);
                 request.setAttribute("die2ImageURL", die2ImageURL);
                 request.setAttribute("message", "Roll again.");
-                request.setAttribute("playButtonState", playButtonState);
+                session.setAttribute("playButtonState", playButtonState);
                 request.setAttribute("rollButtonState", rollButtonState);
                 
                 playButton = "";
@@ -118,7 +128,18 @@ public class CrapsController extends HttpServlet
         }
         else if(rollButton.equalsIgnoreCase("Roll")){
             
-            int myPoint = (int) session.getAttribute("myPoint");
+            int myPoint;
+            
+            if(session.getAttribute("mypoint") == null)
+            {
+                myPoint = 0;
+            }
+            else
+            {
+                myPoint = (int) session.getAttribute("myPoint");
+
+            }
+            
             cm.setPoint(myPoint);
             
             message = cm.rollAgain(die1, die2);
@@ -126,6 +147,8 @@ public class CrapsController extends HttpServlet
             if(message.equalsIgnoreCase("won")){
                 die1ImageURL = die1.getImageURL();
                 die2ImageURL = die2.getImageURL();
+                session.removeAttribute("playButtonState");
+
                 
                 playButtonState = "";
                 rollButtonState = "disabled";
@@ -139,6 +162,8 @@ public class CrapsController extends HttpServlet
                 request.setAttribute("message", "You won! Click Play to play again!");
                 
                 session.removeAttribute("myPoint");
+                session.removeAttribute("pointDie1Image");
+                session.removeAttribute("pointDie2Image");
                 
                 playButton = "";
                 rollButton = "";
@@ -157,6 +182,8 @@ public class CrapsController extends HttpServlet
             else if(message.equalsIgnoreCase("lost")){
                 die1ImageURL = die1.getImageURL();
                 die2ImageURL = die2.getImageURL();
+                session.removeAttribute("playButtonState");
+
                 
                 playButtonState = "";
                 rollButtonState = "disabled";
@@ -170,6 +197,8 @@ public class CrapsController extends HttpServlet
                 request.setAttribute("message", "You lost! Click Play to play again!");
                 
                 session.removeAttribute("myPoint");
+                session.removeAttribute("pointDie1Image");
+                session.removeAttribute("pointDie2Image");
 
                 playButton = "";
                 rollButton = "";
