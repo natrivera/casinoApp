@@ -112,7 +112,7 @@ public class Poker extends HttpServlet
                 
                 out = db.updateBalance(user , bal ,  change , 1);
                 user = db.getUser(user.getUserName());
-                
+                request.setAttribute("error" , out);
                 
                 request.setAttribute("winmessage" , winmessage);
                 request.setAttribute("cpumessage", cpumessage);

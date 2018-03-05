@@ -60,6 +60,67 @@ public class CasinoDB
         return l;
     }
     
+    public String select(String sql) {
+    
+        String table = "";
+         try {
+            
+            // load the driver
+            Class.forName("com.mysql.jdbc.Driver");
+                        
+            Connection connection = DriverManager.getConnection(
+                    dbURL, username, password);
+
+            // create a statement
+            Statement statement = connection.createStatement();
+            String query = sql;
+            ResultSet results = statement.executeQuery(query);
+           
+            table = SQLUtil.getHtmlTable(results);
+                   
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException e) {
+            table += "<p>Error loading the databse driver: <br>"
+                    + e.getMessage() + "</p>";
+        } catch (SQLException e) {
+            table = "<p>Error executing the SQL statement: <br>"
+                    + e.getMessage() + "</p>";
+        }
+        return table;
+    }//end of select
+    
+    public ArrayList<Double> getBets(String sql) {
+    
+        ArrayList<Double> bets = new ArrayList();
+         try {
+            
+            // load the driver
+            Class.forName("com.mysql.jdbc.Driver");
+                        
+            Connection connection = DriverManager.getConnection(
+                    dbURL, username, password);
+
+            // create a statement
+            Statement statement = connection.createStatement();
+            String query = sql;
+            ResultSet results = statement.executeQuery(query);
+           
+            while(results.next()) { 
+                double temp = results.getInt("bet");
+                bets.add(temp);
+            }
+                   
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException e) {
+            
+        } catch (SQLException e) {
+            
+        }
+        return bets;
+    }//end of select
+    
     public String adminLog(String u , String p) {
     
         String out = "";
