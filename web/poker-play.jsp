@@ -14,9 +14,18 @@
             <div class="poker-board">
                 <div class="poker-dealer">
                     <div class="poker-player-box">
+                        <div class="poker-cards">
+                            <div class="poker-hand-msg"><h2>${cpumessage}</h2></div>
+                            <img src="${cpu.image}"  />
+                            <img src="./img/${cpucards[0]}.png" class="poker-play-card-1" />
+                            <img src="./img/${cpucards[1]}.png" class="poker-play-card-2" /> 
+                            <img src="./img/${cpucards[2]}.png" class="poker-play-card-3" /> 
+                            <img src="./img/${cpucards[3]}.png" class="poker-play-card-4" /> 
+                            <img src="./img/${cpucards[4]}.png" class="poker-play-card-5" /> 
+                        </div>
                         <div class="poker-user">
                             <div class="poker-user-display">
-                                Name: ${cpu.name}
+                                ${cpu.name}
                                 <br>
                             </div>
                             <div class="poker-controls">
@@ -27,22 +36,15 @@
                                 </div>
                             </div>  
                         </div>
-                        <div class="poker-cards">
-                            <div class="poker-hand-msg"><h2>${cpumessage}</h2></div>
-                            <img src="./img/${cpucards[0]}.png" class="poker-play-card-1" />
-                            <img src="./img/${cpucards[1]}.png" class="poker-play-card-2" /> 
-                            <img src="./img/${cpucards[2]}.png" class="poker-play-card-3" /> 
-                            <img src="./img/${cpucards[3]}.png" class="poker-play-card-4" /> 
-                            <img src="./img/${cpucards[4]}.png" class="poker-play-card-5" /> 
-                        </div>
                     </div> 
-                    <div class="poker-output">
+                    <div class="poker-player-box">
                         ${winmessage}
                     </div>
                 </div>
                 <div class="poker-player">
                     <div class="poker-player-box">
                         <div class="poker-cards">
+                            <img src="${user.image}"  />
                             <img src="./img/${playercards[0]}.png" class="poker-play-card-1" />
                             <img src="./img/${playercards[1]}.png" class="poker-play-card-2" /> 
                             <img src="./img/${playercards[2]}.png" class="poker-play-card-3" /> 
@@ -52,7 +54,7 @@
                         </div>
                         <div class="poker-user">
                             <div class="poker-controls">
-                                Name: ${user.name}
+                                ${user.name}
                                 <br><br>
                                 <form action="Poker" method="post">
                                     <button type="button" onclick="minus();">-</button>
@@ -65,6 +67,9 @@
                             </div>
                         </div>
                     </div>
+                     
+                   <!--   ||||||| removing for future update ||||||||                
+                                    
                     <div class="poker-player-box">
                         <div class="poker-cards">
                             <img src="./img/i${playercards[10]}.png" class="poker-play-card-1" />
@@ -126,6 +131,9 @@
                             |<br>|<br>|
                         </div>
                     </div>
+                        
+                     -->   
+                        
                 </div>
             </div>
         </div>
