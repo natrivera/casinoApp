@@ -7,8 +7,8 @@ body {
 
 nav {
 background-color: #000;
-margin: -10px;
-padding: 10px;
+margin: -10px -9px;
+padding: 15px;
 color: #fff;
 }
 
@@ -23,6 +23,12 @@ nav a {
 
 nav a:hover {
     color: #00BFFF;
+}
+
+nav img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 
 input {
@@ -40,8 +46,13 @@ fieldset {
     max-width: 400px;
 }
 
-.iiner {
+.inner {
     margin: 20px;
+}
+
+.inner img {
+    height: 109px;
+    width: 75px;
 }
 
 .tittle {
@@ -113,16 +124,14 @@ choice a:hover {
 
 .game {
     height: 80vh;
-    width: 100%;
-    margin-top: 20px;
+    width: 80%;
+    margin: 20px auto;
     
 }
 
 .poker-board {
-    background-color: rgba( 0 ,0, 0, .2);
-    height: 700px;
-    width: 1200px;
     margin: auto;
+    height: 100%;
 }
 
 .poker-dealer {
@@ -160,12 +169,12 @@ choice a:hover {
 }
 
 .poker-player-box {
-    background-color: rgba( 0 , 0 , 0 , .9);
     border-radius: 5px;
     height: 100%;
-    width: 24.7%;
+    width: 40%;
     display: inline-block;
     margin: auto;
+    padding: 10px;
 }
 
 .poker-cards {
@@ -174,7 +183,7 @@ choice a:hover {
 }
 
 .poker-cards img {
-    width: 25%;
+    width: 18%;
     margin: auto;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -232,6 +241,7 @@ choice a:hover {
 .stat-table table {
     text-align: left;
     margin: auto;
+    display: inline-block;
 }
 .stat-table-head div {
     display: inline-block;
