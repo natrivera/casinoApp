@@ -30,23 +30,23 @@ public class leaderboard extends HttpServlet
         if(action.equals("")) {
             sql = "select username , balance from user_t order by balance desc";
         } else if(action.equals("1")) {
-            sql = "select user_t.username , sum(transaction_t.bet) as Winigs " +
+            sql = "select user_t.username , sum(transaction_t.bet) as Winnings " +
                     "from user_t left join transaction_t on user_t.UserID = transaction_t.UserID " +
                     "where transaction_t.GameID = 1 " +
                     "group by user_t.username " +
-                    "order by Balance desc;";
+                    "order by Winnings desc;";
         } else if(action.equals("2")) {
             sql = "select user_t.username , sum(transaction_t.bet) as Winnings " +
                     "from user_t left join transaction_t on user_t.UserID = transaction_t.UserID " +
                     "where transaction_t.GameID = 2 " +
                     "group by user_t.username " +
-                    "order by Balance desc;";
+                    "order by Winnings desc;";
         }else if(action.equals("3")) {
-            sql = "select user_t.username , sum(transaction_t.bet) as Balance " +
+            sql = "select user_t.username , sum(transaction_t.bet) as Winnings " +
                     "from user_t left join transaction_t on user_t.UserID = transaction_t.UserID " +
                     "where transaction_t.GameID = 3 " +
                     "group by user_t.username " +
-                    "order by Balance desc;";
+                    "order by Winnings desc;";
         }    
 
         String table = db.select(sql);
