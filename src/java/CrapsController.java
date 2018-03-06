@@ -135,7 +135,7 @@ public class CrapsController extends HttpServlet
             
             int myPoint;
             
-            if(session.getAttribute("mypoint") == null)
+            if(session.getAttribute("myPoint") == null)
             {
                 myPoint = 0;
             }
