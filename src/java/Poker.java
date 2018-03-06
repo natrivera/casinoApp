@@ -97,10 +97,10 @@ public class Poker extends HttpServlet
 
                 int change = 0;
                 if(cpuscore > playerscore) {
-                    winmessage = "CPU Wins!!!";
+                    winmessage = "Dealer Wins!!!";
                     change = (-1 * userbet);
                 } else if(cpuscore < playerscore) {
-                    winmessage = "Player Wins!!!";
+                    winmessage = user.getName() + " Wins!!!";
                     change = userbet;
                 } else {
                     winmessage = "Tie Game";

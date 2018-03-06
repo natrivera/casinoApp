@@ -8,7 +8,7 @@
         <link href="index.css"  rel="stylesheet" />
     </head>
     <body>
-        <div><nav></nav></div>
+        <div><nav><span>Casino App</span></nav></div>
         <div class="main">
             <div class="tittle">
                 <h1>Login</h1>

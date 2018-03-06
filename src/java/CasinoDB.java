@@ -38,14 +38,17 @@ public class CasinoDB
 
             // create a statement
             Statement statement = connection.createStatement();
-            String query = "select * from " + s;
+            String query = "select * from " + s + "_t";
             ResultSet results = statement.executeQuery(query);
             
+            String id = "";
             //get the length of the resultset
             while(results.next()) {
-                l++;
+                //l++;
+                id = results.getString(s + "id");
             }
             
+            l = Integer.parseInt(id);
           
             statement.close();
             connection.close();
@@ -212,6 +215,7 @@ public class CasinoDB
                     results.getString("username") , 
                     results.getInt("userid"));  
             user.setAdmin(results.getInt("admin"));
+            user.setImage(results.getString("image"));
           
             statement.close();
             connection.close();
@@ -228,7 +232,7 @@ public class CasinoDB
     
     public void setUser(User u) {
         String sqlResult = "";
-        int length = tableL("user_t");
+        int length = tableL("user");
         length++;
          try {
             
@@ -243,10 +247,11 @@ public class CasinoDB
             String currdate = dateFormat.format(date);
             
             String insert = 
-                            "INSERT INTO user_t (userid ,  name , username , password , balance , dateofbirth , datecreated) " +
+                            "INSERT INTO user_t (userid ,  name , username , password , balance , dateofbirth , datecreated , image) " +
                             "VALUES (" + length + ", '" + u.getName() + "', " +
                             "'" + u.getUserName() + "', " +
-                            "'" + u.getPassword() + "' , " + u.getBalance() + " , '" + u.getDob() + "' , '" + currdate + "')";
+                            "'" + u.getPassword() + "' , " + u.getBalance() + " , '" 
+                            + u.getDob() + "' , '" + currdate + "' , '" + u.getImage() + "' )";
 
             //create the statement                
             Statement statement = connection.createStatement();
@@ -287,7 +292,7 @@ public class CasinoDB
             int rowCount = statement.executeUpdate(insert);
             
             //get length of transaction table
-            int length = tableL("transaction_t");
+            int length = tableL("transaction");
             length++;
             
             //create and insert the update transaction query
