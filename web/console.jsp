@@ -4,19 +4,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Console Page</title>
-        <style>
-            .cosole {
-                margin: auto;
-            }
-            .console form {
-                display: inline-block;
-            }
-    
-        </style>
+        <link href="index.css"  rel="stylesheet" />
+        <link rel="icon" href="./img/favicon.ico" type="image/x-icon" >
     </head>
         <body>
             <jsp:include page="/navbar.jsp" />
-            <div class="console" >
+            <div class="console-div" >
                 <h1>Casino App Console</h1>
 
                 <form action="Console" method="post">

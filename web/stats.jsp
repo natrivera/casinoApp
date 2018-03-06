@@ -9,31 +9,34 @@
     </head>
     <body>
         <jsp:include page="/navbar.jsp" />
-        <div class='stat-table'>
-            <div>${table}</div>
-            <br><br>
-            <div class="poker-stats">
-                Poker Stats
-                <br>
-                Games Won: ${pokerstats[3]}
-                <br>
-                Total Games Played: ${pokerstats[0]}
-                <br>
-                Average Winnings: ${pokerstats[1]}
-                <br>
-                Winning percentage: ${pokerstats[2]}%
-            </div>
-            <br><br>
-            <div class="poker-stats">
-                Craps Stats
-                <br>
-                Games Won: ${crapstats[3]}
-                <br>
-                Total Games Played: ${crapstats[0]}
-                <br>
-                Average Winnings: ${crapstats[1]}
-                <br>
-                Winning percentage: ${crapstats[2]}%
+        <div class="console-div">
+            <div class='stat-table'>
+                <img src="${user.image}" />
+                <div>${table}</div>
+                <br><br>
+                <div class="poker-stats">
+                    Poker Stats
+                    <br>
+                    Games Won: ${pokerstats[3]}
+                    <br>
+                    Total Games Played: ${pokerstats[0]}
+                    <br>
+                    Average Winnings: ${pokerstats[1]}
+                    <br>
+                    Winning percentage: ${pokerstats[2]}%
+                </div>
+                <br><br>
+                <div class="poker-stats">
+                    Craps Stats
+                    <br>
+                    Games Won: ${crapstats[3]}
+                    <br>
+                    Total Games Played: ${crapstats[0]}
+                    <br>
+                    Average Winnings: ${crapstats[1]}
+                    <br>
+                    Winning percentage: ${crapstats[2]}%
+                </div>
             </div>
             <br><br>
             <div class="poker-stats">
@@ -48,6 +51,5 @@
                 Winning percentage: ${hilostats[2]}%
             </div>
         </div>
-        
     </body>
 </html>

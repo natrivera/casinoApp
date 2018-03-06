@@ -32,7 +32,7 @@ public class Stats extends HttpServlet
         String url = "/stats.jsp";
         
         CasinoDB db = new CasinoDB();
-        String sql = "select name as 'Name' , username as 'User Name' , balance as 'Balance' , dateofbirth as 'Birthday' , datecreated as 'User Since' from user_t where userid = " + id;
+        String sql = "select name as Name , username as Username , balance as Balance , dateofbirth as DOB , datecreated as Membersince from user_t where userid = " + id;
         
         String table = db.select(sql);
         

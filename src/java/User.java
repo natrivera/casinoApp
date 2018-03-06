@@ -1,6 +1,8 @@
 public class User
 {
-    private String name, username , password , dob;
+    private String name, username , password , dob , image;
+
+    
 
     private int balance , currentWins , currentPlayed , userid , admin;
     
@@ -16,6 +18,7 @@ public class User
         dob = "1999-01-01";
         userid = 1;
         admin = 0;
+        image = "./img/male.jpg";
     }
 
   
@@ -31,6 +34,7 @@ public class User
         dob = d;
         userid = 1;
         admin = 0;
+        image = "./img/male.jpg";
     }
 
     public void setAdmin(int admin)
@@ -53,6 +57,17 @@ public class User
         currentPlayed = 0;
         userid = i;
         admin = 0;
+        image = "./img/male.jpg";
+    }
+    
+    public void setImage(String image)
+    {
+        this.image = image;
+    }
+
+    public String getImage()
+    {
+        return image;
     }
 
     public void setUserid(int userid)

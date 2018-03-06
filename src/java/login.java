@@ -44,12 +44,14 @@ public class login extends HttpServlet
             String dob = (String) request.getParameter("dob");
             String username = (String) request.getParameter("username");
             String password = (String) request.getParameter("password");
+            String img = (String) request.getParameter("image");
             
             String check = db.login(username, password);
             
             if(check.equals("Username not found in our records")) {
                 //create user object from inputted values
                 User user = new User(name , username , password , dob);
+                user.setImage(img);
                 db.setUser(user);
                 //set the user object to the session
                 session.setAttribute("user", user);
