@@ -14,6 +14,7 @@ public class CrapsController extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {      
+        //Declare variables and set them to defaults
         HttpSession session = request.getSession();
         CrapsModel cm = new CrapsModel();
         Die die1 = new Die();
@@ -29,14 +30,18 @@ public class CrapsController extends HttpServlet
         String die1ImageURL = "";
         String die2ImageURL = ""; 
 
-        
+        //Makes a user from the user session and a CasinoDB instance is created to write to the database
         User user = (User) session.getAttribute("user");
         CasinoDB db = new CasinoDB();
         
+        //If the playbutton is selected then it runs the first roll method from the CrapsModel class in order to retrieve two random dices and display them to the craps.jsp
         if(playButton != null)
         {            
             message = cm.firstRoll(die1, die2);
             
+            //Uses the message variable from above to retrieve whether the user won, lost, or can continue
+            //If the user wins, then it sends appropiate information to the craps.jsp, this is the same for if the player loses
+            //If the player rolled a continue then the user is asked to click on the roll button until the player loses or wins
             if(message.equalsIgnoreCase("won")){
                 die1ImageURL = die1.getImageURL();
                 die2ImageURL = die2.getImageURL();
@@ -65,7 +70,7 @@ public class CrapsController extends HttpServlet
                 .getRequestDispatcher(url)
                 .forward(request, response);
             }
-            else if(message.equalsIgnoreCase("lost")){
+            else if(message.equalsIgnoreCase("lost")){ //Checks if the user lost
                 die1ImageURL = die1.getImageURL();
                 die2ImageURL = die2.getImageURL();
                 pointDie2Image = "img/blank_1.png";
@@ -93,7 +98,7 @@ public class CrapsController extends HttpServlet
                 .getRequestDispatcher(url)
                 .forward(request, response);
             }
-            else if(message.equalsIgnoreCase("continue")){
+            else if(message.equalsIgnoreCase("continue")){//checks if the user can continue 
                 pointDie1Image = die1.getImageURL();
                 pointDie2Image = die2.getImageURL();                
 
@@ -126,7 +131,7 @@ public class CrapsController extends HttpServlet
                 
             }
         }
-        else if(rollButton.equalsIgnoreCase("Roll")){
+        else if(rollButton.equalsIgnoreCase("Roll")){//checks if the rollbutton from craps.jsp is clicked and sends the information to the craps.jsp
             
             int myPoint;
             

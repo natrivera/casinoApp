@@ -39,7 +39,7 @@ public class HighLowController extends HttpServlet {
         //Win message to display to user
         String winMessage = "";
 
-                        
+        //If playbutton is clicked, then the user is given to cards, one is displayed and the other displays back of the card
             if(playButton != null){
 
                 playButtonState = "disabled";
@@ -72,6 +72,10 @@ public class HighLowController extends HttpServlet {
                 .forward(request, response);
             }
 
+            //Checks whether the lower or higher button was clicked and those operations depending on which one was clicked
+            //If lower was clicked, then it flips the upside down card up, and tells the user if they were correct
+            //If higher was clicked, then it flips the upside down card up, and tells the user if they were correct 
+            //This if statment also takes into consideration if a Tie happens and writes all transactions to the database
             if(lowerButton != null)
             {
                 if((int)session.getAttribute("card2Score") < (int)session.getAttribute("card1Score"))
