@@ -22,6 +22,10 @@
                 <input type="hidden" name="sqlStatement" value="select * from game_t" />
                 <input type="submit" value="Craps">
             </form>
+            <form action="leaderboard?action=3" method="post">
+                <input type="hidden" name="sqlStatement" value="select * from game_t" />
+                <input type="submit" value="Hi-lo">
+            </form>
         </div>
         <div class="stat-table">
            ${table} 

@@ -45,7 +45,7 @@ public class CrapsModel {
     
     //method that gets used if the player lands a number 4,5,6,8,9,10, it rolls the dice again returning a message depending on wheter they won, lost, or got another number other than the point
     //if the point the player rolled is rolled again, the player wins the game
-    //if the player rolls a 7, the player loses the game, otherwise the player keeps rolling until one of those two conditions are made
+    //if the player rolls a 7, the player loses the game, otherwise the player keeps rolling until one of those two conditions are met
     public String rollAgain(Die die1, Die die2){
         String message = "";
         die1.roll();

@@ -41,7 +41,13 @@ public class leaderboard extends HttpServlet
                     "where transaction_t.GameID = 2 " +
                     "group by user_t.username " +
                     "order by Balance desc;";
-        }  
+        }else if(action.equals("3")) {
+            sql = "select user_t.username , sum(transaction_t.bet) as Balance " +
+                    "from user_t left join transaction_t on user_t.UserID = transaction_t.UserID " +
+                    "where transaction_t.GameID = 3 " +
+                    "group by user_t.username " +
+                    "order by Balance desc;";
+        }    
 
         String table = db.select(sql);
         

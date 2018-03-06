@@ -106,6 +106,40 @@ public class Stats extends HttpServlet
         
         request.setAttribute("crapstats" , crapsout);
         
+        //return stats sql for Hi-Low
+        sql = "select * from user_t , transaction_t where user_t.userid = transaction_t.userid " +
+              "and user_t.userid = " + id +
+                " and gameid = 3";
+        bets = db.getBets(sql);
+        ArrayList<Double>  hiloout = new ArrayList();
+        totalgames = 1;
+        total = 0;
+        average = 0;
+
+        wins = 0;
+        winpercent = 0;
+           for(double bet : bets) {             
+                total = total + bet;
+                if(bet > 0) {
+                    wins++;
+                }
+           }        
+        
+        totalgames = bets.size();
+        if(totalgames == 0) {
+            totalgames = 1;
+        }
+        winpercent = wins / totalgames;
+        winpercent = (double)Math.round(winpercent * 10000d) / 100d;
+        average = total / totalgames;
+        average = (double)Math.round(average * 100d) / 100d;
+        hiloout.add(totalgames);
+        hiloout.add(average);
+        hiloout.add(winpercent);
+        hiloout.add(wins);
+        
+        request.setAttribute("hilostats" , hiloout);
+        
         
         
         
