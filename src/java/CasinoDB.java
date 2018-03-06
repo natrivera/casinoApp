@@ -38,14 +38,17 @@ public class CasinoDB
 
             // create a statement
             Statement statement = connection.createStatement();
-            String query = "select * from " + s;
+            String query = "select * from " + s + "_t";
             ResultSet results = statement.executeQuery(query);
             
+            String id = "";
             //get the length of the resultset
             while(results.next()) {
-                l++;
+                //l++;
+                id = results.getString(s + "id");
             }
             
+            l = Integer.parseInt(id);
           
             statement.close();
             connection.close();
@@ -229,7 +232,7 @@ public class CasinoDB
     
     public void setUser(User u) {
         String sqlResult = "";
-        int length = tableL("user_t");
+        int length = tableL("user");
         length++;
          try {
             
@@ -289,7 +292,7 @@ public class CasinoDB
             int rowCount = statement.executeUpdate(insert);
             
             //get length of transaction table
-            int length = tableL("transaction_t");
+            int length = tableL("transaction");
             length++;
             
             //create and insert the update transaction query
