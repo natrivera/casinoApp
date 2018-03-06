@@ -35,6 +35,18 @@
                 <br>
                 Winning percentage: ${crapstats[2]}%
             </div>
+            <br><br>
+            <div class="poker-stats">
+                Hi-Lo Stats
+                <br>
+                Games Won: ${hilostats[3]}
+                <br>
+                Total Games Played: ${hilostats[0]}
+                <br>
+                Average Winnings: ${hilostats[1]}
+                <br>
+                Winning percentage: ${hilostats[2]}%
+            </div>
         </div>
         
     </body>
