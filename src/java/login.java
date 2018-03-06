@@ -53,6 +53,8 @@ public class login extends HttpServlet
                 User user = new User(name , username , password , dob);
                 user.setImage(img);
                 db.setUser(user);
+                //get the user that was sent to db
+                user = db.getUser(user.getUserName());
                 //set the user object to the session
                 session.setAttribute("user", user);
                 

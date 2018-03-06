@@ -212,6 +212,7 @@ public class CasinoDB
                     results.getString("username") , 
                     results.getInt("userid"));  
             user.setAdmin(results.getInt("admin"));
+            user.setImage(results.getString("image"));
           
             statement.close();
             connection.close();
@@ -243,10 +244,11 @@ public class CasinoDB
             String currdate = dateFormat.format(date);
             
             String insert = 
-                            "INSERT INTO user_t (userid ,  name , username , password , balance , dateofbirth , datecreated) " +
+                            "INSERT INTO user_t (userid ,  name , username , password , balance , dateofbirth , datecreated , image) " +
                             "VALUES (" + length + ", '" + u.getName() + "', " +
                             "'" + u.getUserName() + "', " +
-                            "'" + u.getPassword() + "' , " + u.getBalance() + " , '" + u.getDob() + "' , '" + currdate + "')";
+                            "'" + u.getPassword() + "' , " + u.getBalance() + " , '" 
+                            + u.getDob() + "' , '" + currdate + "' , '" + u.getImage() + "' )";
 
             //create the statement                
             Statement statement = connection.createStatement();
