@@ -161,6 +161,7 @@ choice a:hover {
 
 .poker-player-box {
     background-color: rgba( 0 , 0 , 0 , .9);
+    border-radius: 5px;
     height: 100%;
     width: 24.7%;
     display: inline-block;
@@ -216,6 +217,7 @@ choice a:hover {
 
 .stat-table {
     background-color: rgba( 0 ,0 ,0 , .5);
+    border-radius: 5px;
     max-width: 700px;
     min-height: 500px;
     text-align: center;
@@ -228,7 +230,11 @@ choice a:hover {
 }
 
 .stat-table table {
+    text-align: left;
     margin: auto;
+}
+.stat-table-head div {
+    display: inline-block;
 }
 
 .stat-table td ,th {
