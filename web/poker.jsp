@@ -25,6 +25,7 @@
                             <img src="./img/Ace of Diamonds.png" class="poker-play-card-2" />
                         </div>
                     </a>
+                    <!-- ||||||||removing this for future update||||||||
                     <div class="choice">
                         <form action="Poker" method="post">
                             <input type="hidden" name="action" value="answer" />
@@ -34,6 +35,7 @@
                             
                         </form>
                     </div>
+                    -->
                 </div>
             </div>
         </div>

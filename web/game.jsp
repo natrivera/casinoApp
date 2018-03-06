@@ -34,14 +34,6 @@
                             <br>
                         </div>
                     </a>
-                    <a href="bingo.jsp">
-                        <div class="choice">
-                            Bingo
-                            <br>
-                            <br>
-                            <img src="./img/King of Spades.png" />
-                        </div>
-                    </a>
                     <a href="hi-lo.jsp">
                         <div class="choice">
                             Hi-Lo
