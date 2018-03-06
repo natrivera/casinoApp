@@ -12,7 +12,6 @@
             <nav>
                <span>Casino App</span>
                <span><a href="login.jsp">User Login</a></span>
-               <span><a href="admin.jsp">Admin Login</a></span>
            </nav>   
         </div>
         <div class="main">
