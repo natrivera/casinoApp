@@ -11,15 +11,25 @@
     </head>
     <body>
         <jsp:include page="/navbar.jsp" />
- <div class="game">
+        <div class="game">
             <div class="poker-board">
                 <div class="poker-dealer">
                     <div class="poker-player-box">
+                        <div class="poker-cards">
+                            <img src="${user.image}"  />
+                            <img src="img/<c:choose><c:when test="${count == null}">i.png</c:when><c:otherwise>${card1[0]}.png</c:otherwise></c:choose>" class="poker-play-card-1" />
+                            <img src="img/<c:choose><c:when test="${count == null || count == 1}">i.png</c:when><c:otherwise>${card2[0]}.png</c:otherwise></c:choose>" class="poker-play-card-2" /> 
+                            <br>
+                            ${user.name}
+                        </div>
+                        <form action="HighLowController" method="post">
+                            <input type="submit" name="lowerButton" value="Lower" <c:choose><c:when test="${count == null}">disabled</c:when><c:otherwise>${lowerButtonState}</c:otherwise></c:choose>>
+                            <input type="submit" name="higherButton" value="Higher" <c:choose><c:when test="${count == null}">disabled</c:when><c:otherwise>${higherButtonState}</c:otherwise></c:choose>>
+                            <br><br>
+                            <input type="submit" name="playButton" value="Play" ${playButtonState}>
+                        </form>
+                            <h2>${winMessage}</h2>
                         <div class="poker-user">
-                            <div class="poker-user-display">
-                                Name: ${user.name}
-                                <br>
-                            </div>
                             <div class="poker-controls">
                                 <div class="poker-bet" style="display: none;">
                                     <button>-</button>
@@ -27,23 +37,10 @@
                                     <button>+</button>
                                 </div>
                             </div>  
-                        </div>
-                                <center>
-                        <div class="poker-cards">
-                            <div class="poker-hand-msg"><h2>${winMessage}</h2></div>
-                            <img src="img/<c:choose><c:when test="${count == null}">i.png</c:when><c:otherwise>${card1[0]}.png</c:otherwise></c:choose>" class="poker-play-card-1" />
-                            <img src="img/<c:choose><c:when test="${count == null || count == 1}">i.png</c:when><c:otherwise>${card2[0]}.png</c:otherwise></c:choose>" class="poker-play-card-2" /> 
-                                <form action="HighLowController" method="post">
-                                        <input type="submit" name="lowerButton" value="Lower" <c:choose><c:when test="${count == null}">disabled</c:when><c:otherwise>${lowerButtonState}</c:otherwise></c:choose>>
-                                     <input type="submit" name="higherButton" value="Higher" <c:choose><c:when test="${count == null}">disabled</c:when><c:otherwise>${higherButtonState}</c:otherwise></c:choose>>
-                                     <br>
-                                     <input type="submit" name="playButton" value="Play" ${playButtonState}>
-                                </form>
-                        </div>
-                                </center>
+                        </div>           
                     </div> 
                 </div>
-                </div>
             </div>
+        </div>
     </body>
 </html>

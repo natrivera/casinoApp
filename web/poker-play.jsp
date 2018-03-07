@@ -38,7 +38,7 @@
                         </div>
                     </div> 
                     <div class="poker-player-box">
-                        ${winmessage}
+                        <h2>${winmessage}</h2>
                     </div>
                 </div>
                 <div class="poker-player">

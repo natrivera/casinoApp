@@ -10,26 +10,28 @@
         <body>
             <jsp:include page="/navbar.jsp" />
             <div class="console-div" >
-                <h1>Casino App Console</h1>
+                <div class="stat-table">
+                    <h1>Casino App Console</h1>
 
-                <form action="Console" method="post">
-                    <input type="hidden" name="sqlStatement" value="select * from user_t" />
-                    <input type="submit" value="Users">
-                </form>
-                <form action="Console" method="post">
-                    <input type="hidden" name="sqlStatement" value="select * from transaction_t" />
-                    <input type="submit" value="Transactions">
-                </form>
-                <form action="Console" method="post">
-                    <input type="hidden" name="sqlStatement" value="select * from game_t" />
-                    <input type="submit" value="Games">
-                </form>
-                <form action="Console" method="post">
-                    <textarea  name="sqlStatement" cols="40" rows="4" ></textarea>
-                    <input type="submit" value="Query">
-                </form>
+                    <form action="Console" method="post">
+                        <input type="hidden" name="sqlStatement" value="select * from user_t" />
+                        <input type="submit" value="Users">
+                    </form>
+                    <form action="Console" method="post">
+                        <input type="hidden" name="sqlStatement" value="select * from transaction_t" />
+                        <input type="submit" value="Transactions">
+                    </form>
+                    <form action="Console" method="post">
+                        <input type="hidden" name="sqlStatement" value="select * from game_t" />
+                        <input type="submit" value="Games">
+                    </form>
+                    <form action="Console" method="post">
+                        <textarea  name="sqlStatement" cols="40" rows="4" ></textarea>
+                        <input type="submit" value="Query">
+                    </form>
 
-                ${sqlResult}
+                    ${sqlResult}
+                </div>
             </div>
         </body>
 </html>
