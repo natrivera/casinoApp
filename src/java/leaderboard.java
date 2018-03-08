@@ -26,6 +26,7 @@ public class leaderboard extends HttpServlet
         CasinoDB db = new CasinoDB();
         String action = (String) request.getParameter("action");
         
+        String gameid = "Overall";
         String sql = "";
         if(action.equals("")) {
             sql = "select username , balance from user_t order by balance desc";
@@ -35,23 +36,27 @@ public class leaderboard extends HttpServlet
                     "where transaction_t.GameID = 1 " +
                     "group by user_t.username " +
                     "order by Winnings desc;";
+            gameid = "Poker";
         } else if(action.equals("2")) {
             sql = "select user_t.username , sum(transaction_t.bet) as Winnings " +
                     "from user_t left join transaction_t on user_t.UserID = transaction_t.UserID " +
                     "where transaction_t.GameID = 2 " +
                     "group by user_t.username " +
                     "order by Winnings desc;";
+            gameid = "Craps";
         }else if(action.equals("3")) {
             sql = "select user_t.username , sum(transaction_t.bet) as Winnings " +
                     "from user_t left join transaction_t on user_t.UserID = transaction_t.UserID " +
                     "where transaction_t.GameID = 3 " +
                     "group by user_t.username " +
                     "order by Winnings desc;";
+            gameid = "Hi-Lo";
         }    
 
         String table = db.select(sql);
         
         request.setAttribute("table" , table);
+        request.setAttribute("gameid" , gameid);
         
         // forward request and response objects to specified URL
             getServletContext()

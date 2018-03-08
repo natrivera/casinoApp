@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,8 @@
     </head>
         <body>
             <jsp:include page="/navbar.jsp" />
-            <div class="console-div" >
+            <div style=" margin-top: 20px; display: <c:out value="${ user.admin != 1 ? 'inline-block' : 'none'}" />" >You do not have admin access</div>
+            <div class="console-div" style="display: <c:out value="${ user.admin == 1 ? '' : 'none'}" />" >
                 <div class="stat-table">
                     <h1>Casino App Console</h1>
 

@@ -59,8 +59,17 @@ public class Poker extends HttpServlet
 
                 User cpu = new User("Dealer" , "usr" , "pass", "0000-00-00");
                 
-                Integer userbet = Integer.parseInt(bet);
-
+                Integer userbet = 0;
+                String out = "";
+                try{
+                
+                    userbet = Integer.parseInt(bet);
+                } catch(Exception e) {
+                    
+                    out = "Enter a valid int";
+                    
+                }
+                
                 //deal cards to player
                 Card[] playercards =  {deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard() , deck.dealCard()};
 
@@ -108,10 +117,13 @@ public class Poker extends HttpServlet
                 }
                 int bal = user.getBalance() + change;
                 
-                String out = "";
                 
-                out = db.updateBalance(user , bal ,  change , 1);
+                //update user balance in database and query that user
+                out += db.updateBalance(user , bal ,  change , 1);
                 user = db.getUser(user.getUserName());
+                
+                
+                
                 request.setAttribute("error" , out);
                 
                 request.setAttribute("winmessage" , winmessage);

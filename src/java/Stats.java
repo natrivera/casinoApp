@@ -59,12 +59,15 @@ public class Stats extends HttpServlet
         
         totalgames = bets.size();
         if(totalgames == 0) {
-            totalgames = 1;
+            
+        } else {
+        
+            winpercent = wins / totalgames;
+            winpercent = (double)Math.round(winpercent * 10000d) / 100d;
+            average = total / totalgames;
+            average = (double)Math.round(average * 100d) / 100d;
         }
-        winpercent = wins / totalgames;
-        winpercent = (double)Math.round(winpercent * 10000d) / 100d;
-        average = total / totalgames;
-        average = (double)Math.round(average * 100d) / 100d;
+        
         pokerout.add(totalgames);
         pokerout.add(average);
         pokerout.add(winpercent);
@@ -93,12 +96,14 @@ public class Stats extends HttpServlet
         
         totalgames = bets.size();
         if(totalgames == 0) {
-            totalgames = 1;
+           
+        } else {
+            winpercent = wins / totalgames;
+            winpercent = (double)Math.round(winpercent * 10000d) / 100d;
+            average = total / totalgames;
+            average = (double)Math.round(average * 100d) / 100d;
         }
-        winpercent = wins / totalgames;
-        winpercent = (double)Math.round(winpercent * 10000d) / 100d;
-        average = total / totalgames;
-        average = (double)Math.round(average * 100d) / 100d;
+        
         crapsout.add(totalgames);
         crapsout.add(average);
         crapsout.add(winpercent);
@@ -127,12 +132,16 @@ public class Stats extends HttpServlet
         
         totalgames = bets.size();
         if(totalgames == 0) {
-            totalgames = 1;
+            
+        } else {
+        
+           winpercent = wins / totalgames;
+            winpercent = (double)Math.round(winpercent * 10000d) / 100d;
+            average = total / totalgames;
+            average = (double)Math.round(average * 100d) / 100d; 
         }
-        winpercent = wins / totalgames;
-        winpercent = (double)Math.round(winpercent * 10000d) / 100d;
-        average = total / totalgames;
-        average = (double)Math.round(average * 100d) / 100d;
+        
+        
         hiloout.add(totalgames);
         hiloout.add(average);
         hiloout.add(winpercent);

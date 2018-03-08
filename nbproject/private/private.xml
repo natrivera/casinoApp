@@ -5,11 +5,15 @@
         <group>
             <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/src/java/login.java</file>
             <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/web/poker-play.jsp</file>
+            <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/src/java/HighLowController.java</file>
+            <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/web/navbar.jsp</file>
             <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/src/java/leaderboard.java</file>
             <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/web/login.jsp</file>
             <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/src/java/Poker.java</file>
             <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/src/java/CasinoDB.java</file>
             <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/web/index.jsp</file>
+            <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/web/hi-lo.jsp</file>
+            <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/web/console.jsp</file>
             <file>file:/C:/Users/alber/Documents/NetBeansProjects/casinoApp/web/index.css</file>
         </group>
     </open-files>
