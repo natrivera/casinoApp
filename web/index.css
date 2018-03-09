@@ -6,10 +6,10 @@ body {
 }
 
 nav {
-background-color: #000;
-margin: -10px -9px;
-padding: 15px;
-color: #fff;
+    background-color: #000;
+    margin: -10px -9px;
+    padding: 15px;
+    color: #fff;
 }
 
 nav span {
@@ -31,16 +31,49 @@ nav img {
     margin-right: 10px;
 }
 
-input {
+.form-div {
+    background-color: #FFF;
+    color: #000;
+    border-radius: 10px;
+    padding: 10px;
+}
 
-    border: none;
+.form-div img {
+    margin: 10px;
+}
+
+.form-div div {
+    margin: 2px 0px -10px 35px;
+    text-align: left;
+}
+
+.form-div input[type=submit] {
+    background-color: #3366ff;
+    color: #FFF;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.form-div input[type=submit]:hover {
+    background-color: #00BFFF;
+}
+
+.form-div input {
+   padding: 5px;
+   width: 80%;
+   border-radius: 5px;
+   border: 2px solid;
+   margin-bottom: 5px;
 }
 fieldset {
     border: none;
 }
 
+fieldset span {
+    display: inline-block;
+}
+
 .main {
-    
     margin: 0px auto;
     min-height: 100%;
     max-width: 400px;
@@ -75,14 +108,6 @@ fieldset {
     color: red;
     font-weight: bold;
 }
-
-label {
-    float: left;
-    text-align: right;
-    width: 200px;
-    padding-right: 15px;
-}
-
 
 
 .welcome {
@@ -126,7 +151,7 @@ choice a:hover {
     height: 80vh;
     width: 80%;
     margin: 20px auto;
-    
+
 }
 
 .poker-board {
@@ -160,7 +185,7 @@ choice a:hover {
     background-color: red;
     border: none;
     text-align: center;
-    font-wieght: bold;
+    font-weight: bold;
 }
 
 .poker-player {
@@ -221,7 +246,7 @@ choice a:hover {
 
 .poker-hand-msg {
     text-align: center;
-    
+
 }
 
 .stat-table {
