@@ -8,7 +8,7 @@
         <a href="console.jsp">Admin Console</a>
     </span>
     <span style="float: right; margin-right: 20px;">
-        <span><img src="${user.image}" /></span>
+        <span><a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ#t=0m43s"><img src="${user.image}" /></a></span>
         <span>
             <a href="Stats?id=${user.userid}">${user.name}</a>  
             ||  

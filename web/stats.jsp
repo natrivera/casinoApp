@@ -10,11 +10,13 @@
     <body>
         <jsp:include page="/navbar.jsp" />
         <div class="console-div">
-            <div class='stat-table'>
-                <div class="stat-table-head">
+            <div class="stat-table-head">
+                <div class="inner">
                     <div><img src="${user.image}" /></div>
                     <div>${table}</div>
-                </div>
+                </div>   
+            </div>
+            <div class='stat-table'>
                 <br><br>
                 <div class="poker-stats">
                     <table>

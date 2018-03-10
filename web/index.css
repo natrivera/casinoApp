@@ -6,7 +6,7 @@ body {
 }
 
 nav {
-    background-color: #000;
+    background-color: #002936;
     margin: -10px -9px;
     padding: 15px;
     color: #fff;
@@ -48,7 +48,7 @@ nav img {
 }
 
 .form-div input[type=submit] {
-    background-color: #3366ff;
+    background-color: #002936;
     color: #FFF;
     font-weight: bold;
     padding: 10px;
@@ -127,7 +127,7 @@ fieldset span {
     display: inline-block;
     border: 3px solid #000;
     border-radius: 10px;
-    background-color: #000;
+    background-color: #002936;
 }
 
 .choice:hover {
@@ -250,13 +250,14 @@ choice a:hover {
 }
 
 .stat-table {
-    background-color: rgba( 0 ,0 ,0 , .5);
-    border-radius: 5px;
+    background-color: #006789;
     max-width: 900px;
     min-height: 500px;
     text-align: center;
-    margin: 20px auto;
+    margin: 0px auto 0px auto;
     padding: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .poker-stats {
@@ -277,7 +278,50 @@ choice a:hover {
 .stat-table form {
     display: inline-block;
 }
+
+.stat-table-head {
+    background-color: #FFF;
+    color: #000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 20px;
+    margin: 0px auto;
+    max-width: 900px;
+}
+
+.stat-table-head .inner {
+    width: 100%;
+    margin: auto;
+}
+
+.stat-table-head input[type=submit] {
+    background-color: #002936;
+    color: #FFF;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.stat-table-head textarea {
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.stat-table-head input[type=submit]:hover  {
+    background-color: #00BFFF;
+}
+
+.stat-table-head img {
+    width: 75px;
+    height: 75px;
+    margin: 0px 20px 0px 0px;
+}
+
 .stat-table-head div {
+    display: inline-block;
+}
+
+.stat-table-head span {
+    margin: auto;
     display: inline-block;
 }
 
@@ -286,10 +330,6 @@ choice a:hover {
     padding: 10px;
 }
 
-.stat-table img {
-    width: 75px;
-    height: 75px;
-}
 
 .console {
     padding: 10px;
